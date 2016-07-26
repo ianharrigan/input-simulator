@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xml>
     <set name="NO_PRECOMPILED_HEADERS" value="1"/>
-    
+
     <section if="windows">
         <files id="haxe">
             <compilerflag value="-IZ:\TestApps\InputSimulator\cpp\win" />
             <compilerflag value="-DWIN32" if="windows" />
-			<compilerflag value="-DUNICODE11" />
-			<compilerflag value="-D_UNICODE11" />
+            <compilerflag value="-DUNICODE11" />
+            <compilerflag value="-D_UNICODE11" />
             <file name="Z:\TestApps\InputSimulator\cpp\win\WindowLocatorImpl.cpp" />
             <file name="Z:\TestApps\InputSimulator\cpp\win\MouseImpl.cpp" />
             <file name="Z:\TestApps\InputSimulator\cpp\win\KeyBoardImpl.cpp" />
-        </files> 
-        
+        </files>
+
         <target id="haxe" tool="linker" toolid="exe">
-        </target>    
-    </section>   
+        </target>
+    </section>
 </xml>

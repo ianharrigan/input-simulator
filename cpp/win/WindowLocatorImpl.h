@@ -5,18 +5,18 @@
 #undef RegisterClass
 
 class WindowLocatorImpl {
-	public:
-		WindowLocatorImpl();
-		~WindowLocatorImpl();
+    public:
+        WindowLocatorImpl();
+        ~WindowLocatorImpl();
 
-		void* FindByTitle(const char* title);
-		void BringToFront();
+        void* FindByTitle(const char* title);
+        void BringToFront();
 
-	private:
-		static BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam);
+    private:
+        static BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam);
 
-	private:
-		HWND m_hwnd;
-		char m_title[255];
+    private:
+        HWND m_hwnd;
+        char m_title[255];
 };
 
