@@ -4,13 +4,13 @@
 
     <section if="windows">
         <files id="haxe">
-            <compilerflag value="-IZ:\TestApps\InputSimulator\cpp\win" />
+            <compilerflag value="-I${haxelib:input-simulator}/cpp/win" />
             <compilerflag value="-DWIN32" if="windows" />
             <compilerflag value="-DUNICODE11" />
             <compilerflag value="-D_UNICODE11" />
-            <file name="Z:\TestApps\InputSimulator\cpp\win\WindowLocatorImpl.cpp" />
-            <file name="Z:\TestApps\InputSimulator\cpp\win\MouseImpl.cpp" />
-            <file name="Z:\TestApps\InputSimulator\cpp\win\KeyBoardImpl.cpp" />
+            <file name="${haxelib:input-simulator}/cpp/win/WindowLocatorImpl.cpp" />
+            <file name="${haxelib:input-simulator}/cpp/win/MouseImpl.cpp" />
+            <file name="${haxelib:input-simulator}/cpp/win/KeyBoardImpl.cpp" />
         </files>
 
         <target id="haxe" tool="linker" toolid="exe">
