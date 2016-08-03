@@ -9,8 +9,10 @@ class WindowLocatorImpl {
         WindowLocatorImpl();
         ~WindowLocatorImpl();
 
-        void* FindByTitle(const char* title);
+        BOOL FindByTitle(const char* title);
         void BringToFront();
+        BOOL HasWindow();
+        void* GetWindow();
 
     private:
         static BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam);

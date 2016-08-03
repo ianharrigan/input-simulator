@@ -9,17 +9,25 @@ WindowLocatorImpl::WindowLocatorImpl() {
 WindowLocatorImpl::~WindowLocatorImpl() {
 }
 
-void* WindowLocatorImpl::FindByTitle(const char* title) {
+BOOL WindowLocatorImpl::FindByTitle(const char* title) {
     m_hwnd = NULL;
     strcpy(m_title, title);
     EnumWindows(EnumWindowsProc, reinterpret_cast<LPARAM>(this));
-    return m_hwnd;
+    return HasWindow();
 }
 
 void WindowLocatorImpl::BringToFront() {
     if (m_hwnd != NULL) {
         ::SetForegroundWindow(m_hwnd);
     }
+}
+
+BOOL WindowLocatorImpl::HasWindow() {
+    return (m_hwnd != NULL);
+}
+
+void* WindowLocatorImpl::GetWindow() {
+    return m_hwnd;
 }
 
 BOOL WindowLocatorImpl::EnumWindowsProc(HWND hwnd, LPARAM lParam) {
