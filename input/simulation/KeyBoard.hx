@@ -8,7 +8,7 @@ import cpp.RawPointer;
 @:unreflective
 @:include("KeyBoardImpl.h")
 @:native("KeyBoardImpl*")
-@:buildXml("<include name=\"../../Build.xml\" />")
+@:buildXml("<include name=\"${haxelib:input-simulator}/Build.xml\" />")
 extern class KeyBoard {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions

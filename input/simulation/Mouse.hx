@@ -5,7 +5,7 @@ import cpp.RawPointer;
 @:unreflective
 @:include("MouseImpl.h")
 @:native("MouseImpl*")
-@:buildXml("<include name=\"../../Build.xml\" />")
+@:buildXml("<include name=\"${haxelib:input-simulator}/Build.xml\" />")
 extern class Mouse {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions

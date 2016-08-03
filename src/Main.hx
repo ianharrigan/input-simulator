@@ -1,7 +1,11 @@
-package input.simulation;
+package;
 
 import cpp.Lib;
 import cpp.Pointer;
+import input.simulation.KeyBoard;
+import input.simulation.Keys;
+import input.simulation.Mouse;
+import input.simulation.WindowLocator;
 
 class Main {
     public static function main() {

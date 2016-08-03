@@ -6,7 +6,7 @@ import cpp.RawPointer;
 @:unreflective
 @:include("WindowLocatorImpl.h")
 @:native("WindowLocatorImpl*")
-@:buildXml("<include name=\"../../Build.xml\" />")
+@:buildXml("<include name=\"${haxelib:input-simulator}/Build.xml\" />")
 extern class WindowLocator {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // creation functions
@@ -16,6 +16,8 @@ extern class WindowLocator {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @:native("FindByTitle")                public function findByTitle(title:ConstCharStar):RawPointer<cpp.Void>;
+    @:native("FindByTitle")                public function findByTitle(title:ConstCharStar):Bool;
     @:native("BringToFront")               public function bringToFront():Void;
+    @:native("HasWindow")                  public function hasWindow():Bool;
+    @:native("GetWindow")                  public function getWindow():RawPointer<cpp.Void>;
 }
