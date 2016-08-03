@@ -8,6 +8,7 @@ MouseImpl::MouseImpl() {
     m_offsetX = -1;
     m_offsetY = -1;
     m_delay = 3;
+    m_userOffsetY = 0;
 }
 
 MouseImpl::~MouseImpl() {
@@ -70,20 +71,28 @@ void MouseImpl::CalcOffset() {
         GetWindowRect(m_hwnd, &windowRect);
         int windowCX = windowRect.right - windowRect.left;
         int windowCY = windowRect.bottom - windowRect.top;
+        
+        //printf("WINDOW RECT: top=%d, left=%d, bottom=%d, right=%d\n", windowRect.top, windowRect.left, windowRect.bottom, windowRect.right);
+        
         m_offsetX = windowRect.left;
         m_offsetY = windowRect.top;
 
         RECT clientRect;
         GetClientRect(m_hwnd, &clientRect);
+        //printf("CLIENT RECT: top=%d, left=%d, bottom=%d, right=%d\n", clientRect.top, clientRect.left, clientRect.bottom, clientRect.right);
 
         int deltaX = windowCX - clientRect.right;
         int deltaY = windowCY - clientRect.bottom;
 
-        m_offsetX += deltaX / 2;
-        m_offsetY += deltaY / 2;
+        /*
+        m_offsetX += deltaX;
+        m_offsetY += deltaY;
+        */
+        m_offsetX += GetSystemMetrics(SM_CXSIZEFRAME);
+        m_offsetY += GetSystemMetrics(SM_CYCAPTION) + GetSystemMetrics(SM_CYSIZEFRAME);
 
-        // TODO: should detect if there is a windows menu and adjust based on its height - this is a hack / assumption
-        m_offsetY += 25;
+        m_offsetY += GetMenuHeight();
+        m_offsetY += m_userOffsetY;
     }
 }
 
@@ -115,4 +124,20 @@ BOOL MouseImpl::ValidWindow() {
     }
 
     return IsWindow(m_hwnd);
+}
+
+int MouseImpl::GetMenuHeight() {
+    if (ValidWindow() == FALSE) {
+        return 0;
+    }
+    int cy = 0;
+    HMENU m = GetMenu(m_hwnd);
+    if (m != NULL) {
+        cy = GetSystemMetrics(SM_CYMENU);
+    }
+    return cy;
+}
+
+void MouseImpl::SetOffsetY(int offset) {
+    m_userOffsetY = offset;
 }

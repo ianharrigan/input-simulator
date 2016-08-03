@@ -11,9 +11,11 @@
             <file name="${haxelib:input-simulator}/cpp/win/WindowLocatorImpl.cpp" />
             <file name="${haxelib:input-simulator}/cpp/win/MouseImpl.cpp" />
             <file name="${haxelib:input-simulator}/cpp/win/KeyBoardImpl.cpp" />
+            <file name="${haxelib:input-simulator}/cpp/win/ProcessImpl.cpp" />
         </files>
 
         <target id="haxe" tool="linker" toolid="exe">
+            <lib name="Shell32.lib" />
         </target>
     </section>
 </xml>

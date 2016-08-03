@@ -17,6 +17,7 @@ extern class Mouse {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("SetWindowHandle")   public function setWindowHandle(handle:RawPointer<cpp.Void>):Void;
     @:native("SetDelay")          public function setDelay(delay:Int):Void;
+    @:native("SetOffsetY")        public function setOffsetY(offset:Int):Void;
 
     @:native("Up")                public function up(x:Int, y:Int):Void;
     @:native("Down")              public function down(x:Int, y:Int):Void;

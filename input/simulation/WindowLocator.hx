@@ -17,7 +17,9 @@ extern class WindowLocator {
     // instance functions
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @:native("FindByTitle")                public function findByTitle(title:ConstCharStar):Bool;
+    @:native("FindByProcessId")            public function findByProcessId(processId:Int):Bool;
     @:native("BringToFront")               public function bringToFront():Void;
     @:native("HasWindow")                  public function hasWindow():Bool;
     @:native("GetWindow")                  public function getWindow():RawPointer<cpp.Void>;
+    @:native("Close")                      public function close():Void;
 }
