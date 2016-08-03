@@ -65,10 +65,6 @@ void MouseImpl::Stroke(int fromX, int fromY, int toX, int toY) {
 }
 
 void MouseImpl::CalcOffset() {
-    if (m_offsetX != -1 && m_offsetY != -1) {
-        return;
-    }
-
     if (m_hwnd != NULL) {
         RECT windowRect;
         GetWindowRect(m_hwnd, &windowRect);
