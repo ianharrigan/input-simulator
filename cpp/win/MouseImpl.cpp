@@ -36,8 +36,11 @@ void MouseImpl::Move(int x, int y) {
 
 void MouseImpl::Click(int x, int y) {
     Move(x, y);
+    Sleep(150);
     Down(x, y);
+    Sleep(150);
     Up(x, y);
+    Sleep(150);
 }
 
 void MouseImpl::Stroke(int fromX, int fromY, int toX, int toY) {
