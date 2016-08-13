@@ -1,5 +1,7 @@
 #include "ProcessImpl.h"
 
+#include <stdio.h>
+
 ProcessImpl::ProcessImpl() {
 	m_dwProcessId = 0;
 }
@@ -10,15 +12,23 @@ ProcessImpl::~ProcessImpl() {
 BOOL ProcessImpl::Open(const char* file, int wait) {
 	m_dwProcessId = 0;
 
+    char drive[255];
+    char dir[255];
+    char fname[255];
+    char ext[255];
+    _splitpath(file, drive, dir, fname, ext);
+    
+    char workingDir[255];
+    sprintf(workingDir, "%s%s", drive, dir);
+    
 	SHELLEXECUTEINFO ShExecInfo;
-
 	ShExecInfo.cbSize = sizeof(SHELLEXECUTEINFO);
 	ShExecInfo.fMask = SEE_MASK_NOCLOSEPROCESS;
 	ShExecInfo.hwnd = NULL;
 	ShExecInfo.lpVerb = NULL;
 	ShExecInfo.lpFile = file;
 	ShExecInfo.lpParameters = NULL;
-	ShExecInfo.lpDirectory = NULL;
+	ShExecInfo.lpDirectory = workingDir;
 	ShExecInfo.nShow = SW_SHOWNORMAL;
 	ShExecInfo.hInstApp = NULL;
 
