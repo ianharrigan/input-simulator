@@ -29,6 +29,6 @@ class MouseImpl {
         int m_offsetX;
         int m_offsetY;
         int m_delay;
-        
+
         int m_userOffsetY;
 };

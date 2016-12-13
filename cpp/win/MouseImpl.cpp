@@ -74,9 +74,9 @@ void MouseImpl::CalcOffset() {
         GetWindowRect(m_hwnd, &windowRect);
         int windowCX = windowRect.right - windowRect.left;
         int windowCY = windowRect.bottom - windowRect.top;
-        
+
         //printf("WINDOW RECT: top=%d, left=%d, bottom=%d, right=%d\n", windowRect.top, windowRect.left, windowRect.bottom, windowRect.right);
-        
+
         m_offsetX = windowRect.left;
         m_offsetY = windowRect.top;
 
